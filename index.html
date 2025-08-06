@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>MESIN KARBIT</title>
+  <style>
+    body {
+      background: #f3e5f5;
+      font-family: sans-serif;
+      text-align: center;
+      padding: 30px;
+      color: #6a1b9a;
+    }
+    img {
+      width: 800px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #9c27b0;
+      margin-top: 20px;
+    }
+    .btn {
+      background: #ce93d8;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      font-size: 3em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background: #ab47bc;
+    }
+    .rating {
+      font-size: 2.5em;
+      margin-top: 15px;
+      color: #d81b60;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>MESIN KARBIT LOH YA</h1>
+  <p>Klik buat dapet ISTRI😹</p>
+
+  <img id="waifu-img" src="https://waifu.pics/api/sfw/waifu" alt="MY KISAH">
+  <div class="rating" id="waifu-rating">ISTRI RANDOM</div>
+  <br>
+  <button class="btn" onclick="getWaifu()">GACHA</button>
+
+  <script>
+    const ratings = [
+      "LUMAYAN LAH",
+      "OMAIGAT BEAUTIPUL AMAZING",
+      "PUNYA ADMIN ",
+      "WAIFUABLE ",
+      "KEK ANAK KECIL",
+      "TERSERAH LO AJ",
+      "MY KISAH ",
+      "🤨"
+    ];
+
+    async function getWaifu() {
+      const res = await fetch('https://api.waifu.pics/sfw/waifu');
+      const data = await res.json();
+      document.getElementById('waifu-img').src = data.url;
+
+      const randomRating = ratings[Math.floor(Math.random() * ratings.length)];
+      document.getElementById('waifu-rating').innerText = randomRating;
+    }
+  </script>
+</body>
+</html>
